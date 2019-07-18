@@ -9,3 +9,17 @@ service:
   environment:
     CRYSTAL_URL: "http://ecsdemo-crystal/crystal"
     NODEJS_URL: "http://ecsdemo-nodejs/"
+templates:
+  mu-b6-iam-service-ecsdemo-frontend-acceptance:
+    Resources:
+      ApplicationAutoScalingRole:
+        Properties:
+          RoleName: 
+            Fn::Sub: ${Namespace}-service-${ServiceName}-${EnvironmentName}-autoscaling
+  mu-b6-iam-service-ecsdemo-frontend-production:
+    Resources:
+      ApplicationAutoScalingRole:
+        Properties:
+          RoleName:
+            Fn::Sub: ${Namespace}-service-${ServiceName}-${EnvironmentName}-autoscaling
+    
